@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SC6BTWFQD2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SC6BTWFQD2');
+</script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <title>Simple JS Cart</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="cart.css">
+    <script src="products.js"></script>
+    <script src="cart.js"></script>
+
+    <!-- Image and text -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">
+        <img src="https://openclipart.org/image/2400px/svg_to_png/221493/Headphones-Icon.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        HeadsetShop
+      </a>
+     
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="home.html">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="cart.html">Cart</a>
+          </li>
+        </ul>
+      </div>
+            <button class="btn btn-danger" onclick="logout()">Logout</button>
+    </nav>
+
+  <style>
+      /* Add your custom styles here */
+      
+      .sidebar {
+        height: 100%;
+        width: 250px;
+        position: fixed;
+        top: 10;
+        left: 0;
+        background-color: grey;
+        padding-top: 20px;
+      }
+
+      .sidebar a {
+        padding: 10px 15px;
+        text-decoration: none;
+        font-size: 25px;
+        color: black;
+        display: block;
+      }
+
+      .sidebar a:hover {
+        color: #f1f1f1;
+      }
+
+      .content {
+        margin-left: 260px;
+        padding: 20px;
+      }
+
+      /* Add your other styles here */
+    </style>
+
+  </head>
+  <body>
+
+     <div class="sidebar">
+      <a href="#">Category 1</a>
+      <a href="#">Category 2</a>
+      <a href="#">Category 3</a>
+      <!-- Add more categories as needed -->
+    </div>    
+
+
+    <!-- Content -->
+    <div class="content">
+      <!-- Your existing content -->
+      <h2 id="Products" style="text-align: center;margin-top: 50px;">Shop for Products</h2>
+      <!-- (A) CART -->
+      <div id="cart-wrap">
+        <!-- (A1) PRODUCTS LIST -->
+        <div id="cart-products"></div>
+        <h2 style="text-align: center;margin-top: 50px;margin-bottom: 30px;">Your Cart</h2>
+        <!-- (A2) CURRENT CART ITEMS -->
+        <div id="cart-items"></div>
+      </div>
+
+      <!-- (B) TEMPLATES -->
+      <!-- (B1) PRODUCT CELL -->
+
+      <template id="template-product">
+        <div class="p-item">
+          <img class="p-img">
+          <div class="p-info">
+            <div class="p-txt">
+              <div class="p-name"></div>
+              <div class="p-price"></div>
+            </div>
+            <button class="cart p-add">+</button>
+          </div>
+        </div>
+      </template>
+
+      <!-- (B2) CART ITEMS -->
+      <template id="template-cart">
+        <div class="c-item">
+          <input class="c-qty" type="number" min="0">
+          <div class="c-name"></div>
+          <button class="c-del cart">X</button>
+        </div>
+      </template>
+      <template id="template-cart-checkout">
+        <div class="c-go">
+          <button class="c-empty cart" onclick="cart.nuke()">Empty</button>
+          <a href="form.html"
+            ><button type="button" class="c-checkout cart">
+              Continue to Checkout
+            </button></a
+          >
+        </div>
+      </template>
+    </div>
+
+    <!-- new code-->
+    
+
+    <script>
+      function logout() {
+        window.location.href = 'login.html';
+      }
+    </script>
+  </body>
+</html>
